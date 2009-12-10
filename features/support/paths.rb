@@ -12,6 +12,9 @@ module NavigationHelpers
       new_password_path
 
     # Add more page name => path mappings here
+    
+    when /the lists page/i
+      lists_path
 
     else
       raise "Can't find mapping from \"#{page_name}\" to a path."
