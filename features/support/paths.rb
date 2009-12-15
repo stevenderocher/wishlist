@@ -15,6 +15,12 @@ module NavigationHelpers
     
     when /the lists page/i
       lists_path
+    
+    when /the list page for the "([^\"]*)" list/i
+      list_path(List.find_by_title($1))
+      
+    when /the users page/i
+      users_path
 
     else
       raise "Can't find mapping from \"#{page_name}\" to a path."

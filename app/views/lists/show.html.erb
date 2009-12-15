@@ -1,0 +1,11 @@
+<h2><%= h @list.user.email %>'s <%= h @list.title %> List</h2>
+
+<ul>
+	<% @list.items.each do |item| %>
+		<li><%= link_to item.productname, item_path(item) %><br />
+	    	<%= item.seller %><br />
+	    	<%= item.description %><br />
+	    	<%= item.price %><br />
+	    	<%= item.quantity %><br />
+	<% end %>
+</ul>	
