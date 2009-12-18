@@ -7,15 +7,19 @@ ActionController::Routing::Routes.draw do |map|
     :controller => 'clearance/sessions',
     :only       => [:new, :create, :destroy]
 
-  map.resources :users, :controller => 'clearance/users' do |users|
-    users.resource :password,
-      :controller => 'clearance/passwords',
-      :only       => [:create, :edit, :update]
+    map.resources :users do |users|
+      users.resources :lists, 
+        :controller => 'users', 
+        :only => [:index, :show]
 
-    users.resource :confirmation,
-      :controller => 'clearance/confirmations',
-      :only       => [:new, :create]
-  end
+      users.resource :password,
+        :controller => 'clearance/passwords',
+        :only       => [:create, :edit, :update]
+
+      users.resource :confirmation,
+        :controller => 'clearance/confirmations',
+        :only       => [:new, :create]
+    end
 
   map.sign_up  'sign_up',
     :controller => 'clearance/users',

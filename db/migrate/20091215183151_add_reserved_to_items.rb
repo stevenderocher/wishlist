@@ -6,8 +6,6 @@ class AddReservedToItems < ActiveRecord::Migration
   end
 
   def self.down
-    change_table :items do |t|
-      t.remove :reserved
-    end
+
   end
 end
