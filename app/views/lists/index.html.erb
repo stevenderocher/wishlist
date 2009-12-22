@@ -1,7 +1,7 @@
 <h2>All Wishlists</h2>
 
 <ul>
-	<% @lists.each do |list| -%>
+	<% @user.lists.each do |list| -%>
 		<li><%= link_to list.title, list_path(list) %></li>
 	<% end -%>
 </ul>

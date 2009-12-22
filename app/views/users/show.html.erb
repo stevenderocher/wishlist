@@ -2,6 +2,8 @@
 
 <ul>
 	<% @user.lists.each do |list| %>
-		<li><%= link_to list.title, list_path(list) %></li>
+		<li><%= link_to list.title, user_list_path(@user, list) %> – <%= link_to 'add item', new_list_item_path(list) %></li>
 	<% end %>
 </ul>
+
+<%= link_to 'Add a List', new_user_list_path(@user.id) %>

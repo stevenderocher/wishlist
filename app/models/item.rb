@@ -1,4 +1,7 @@
 class Item < ActiveRecord::Base
+  
+  attr_accessible :seller, :price, :quantity, :product_url, :comments, :product_name, :product_image_url, :description, :reserved, :reserved_by
+  
   belongs_to :list
   
   validate :doublereserve
@@ -13,9 +16,9 @@ class Item < ActiveRecord::Base
   # end
     
   def doublereserve
-    if reserved_was && reserved
-      errors.add(:reserved, 'This item has already been reserved')
-    end
+      if reserved_was && reserved
+        errors.add(:reserved, 'This item has already been reserved')
+      end
   end
   
 end

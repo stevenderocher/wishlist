@@ -13,19 +13,24 @@
 <link href="/flutie/stylesheets/screen.css?1260470285" media="screen" rel="stylesheet" type="text/css" />
 <link href="/stylesheets/wishlist.css?1260470285" media="screen" rel="stylesheet" type="text/css" />
   </head>
-  <body class="users users-index">
+  <body class="lists lists-new">
     <div class="content">
+	  <a href="/users">Find Someone's List</a> <a href="/lists/new.%23%3Cuser:0x105941e88%3E">Make yourself a list</a> 
       <div id="flash">
   </div>
-      <h2>Users</h2>
+      <h2>New Wishlist for s@d.com</h2>
 
-<ul>
-	
-		<li><a href="/users/1">s@d.com</a></li>
-	
-</ul>
+<form action="/users/336/lists" class="formtastic list" id="new_list" method="post">
+  
+    <fieldset class="inputs"><ol>
+  	  <li class="string required" id="list_title_input"><label for="list_title">Title<abbr title="required">*</abbr></label><input id="list_title" maxlength="255" name="list[title]" size="50" type="text" /></li>
+	</ol></fieldset>
+  <fieldset class="buttons"><ol>
+    <li class="commit"><input id="list_submit" name="commit" type="submit" value="Create" /></li>
+  </ol></fieldset>
+</form>
 
-<a href="/users">link</a>
+
       <script src="/javascripts/jquery.js?1260470285" type="text/javascript"></script>
 <script src="/javascripts/jquery-ui.js?1260470285" type="text/javascript"></script>
 <script src="/javascripts/jrails.js?1260470285" type="text/javascript"></script>

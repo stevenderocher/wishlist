@@ -6,11 +6,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resource  :session,
     :controller => 'clearance/sessions',
     :only       => [:new, :create, :destroy]
+    
+    map.resources :users, :only => [:index, :show], :has_many => [:lists]
 
     map.resources :users do |users|
-      users.resources :lists, 
-        :controller => 'users', 
-        :only => [:index, :show]
+      users.resources :lists
 
       users.resource :password,
         :controller => 'clearance/passwords',

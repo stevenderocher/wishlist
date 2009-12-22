@@ -32,3 +32,22 @@ Scenario: Visitors should be able to reserve items from lists
 # 	And I am on the list page for the "xmas" list
 # 	And I follow "xmas"
 # 	And I follow "reserve"
+
+Scenario: Add item to list
+	Given a user exists with an email of "s@d.com"
+	And a list exists with a title of "xmas"
+	And the list "xmas" belongs to "s@d.com"
+	And I am on the user page for the user "s@d.com"
+	And I follow "xmas"
+	And I follow "Add an Item"
+	And I fill in "Product name" with "item"
+	And I fill in "Seller" with "something"
+	And I fill in "Price" with "something"
+	And I fill in "Quantity" with "something"
+	And I fill in "Product url" with "something"
+	And I fill in "Product image url" with "something"
+	And I fill in "Description" with "something"
+    And I press "Add"
+    Then I should see "s@d.com"
+	And I should see "xmas"
+	And I should see "item"

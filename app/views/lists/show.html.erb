@@ -1,11 +1,14 @@
-<h2><%= h @list.user.email %>'s <%= h @list.title %> List</h2>
+<h2><%= h @list.user.email %>'s List "<%= h @list.title %>"</h2>
 
 <ul>
 	<% @list.items.each do |item| %>
-		<li><%= link_to item.productname, item_path(item) %><br />
+		<li><%= link_to item.product_name, list_item_path(@list, item) %><br />
 	    	<%= item.seller %><br />
 	    	<%= item.description %><br />
 	    	<%= item.price %><br />
-	    	<%= item.quantity %><br />
+	    	<%= item.quantity %></li>
+			<%= button_to 'Reserve', list_item_path(@list, item, :item => {:reserved => true} ), :method => :put %>
 	<% end %>
 </ul>	
+
+<%= link_to 'Add an Item', new_list_item_path(@list.id) %>

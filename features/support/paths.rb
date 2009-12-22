@@ -21,6 +21,9 @@ module NavigationHelpers
       
     when /the users page/i
       users_path
+      
+    when /the user page for the user "([^\"]*)"/i
+      user_path(User.find_by_email($1))
 
     else
       raise "Can't find mapping from \"#{page_name}\" to a path."

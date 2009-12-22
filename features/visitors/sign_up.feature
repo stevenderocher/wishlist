@@ -25,4 +25,3 @@ Feature: Sign up
       When I follow the confirmation link sent to "email@person.com"
       Then I should see "Confirmed email and signed in"
       And I should be signed in
-

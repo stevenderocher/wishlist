@@ -1,10 +1,10 @@
-<h2><%= h @item.productname %></h2>
+<h2><%= h @item.product_name %> from <%= h @list.user.email %>'s List "<%= h @list.title %>"</h2>
 
-	<%= @item.productname %><br />
+	<h3><%= @item.product_name %></h3>
 	<%= @item.seller %><br />
 	<%= @item.description %><br />
 	<%= @item.price %><br />
 	<%= @item.quantity %><br />
 	
 	<%= error_messages_for(:item) %>
-	<%= button_to 'Reserve', item_path(@item, :item => {:reserved => true} ), :method => :put %>
+	<%= button_to 'Reserve', list_item_path(@list, @item, :item => {:reserved => true} ), :method => :put %>
