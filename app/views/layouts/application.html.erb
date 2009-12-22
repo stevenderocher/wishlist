@@ -8,7 +8,8 @@
   </head>
   <body class="<%= body_class %>">
     <div class="content">
-	  <%= link_to 'Find Someone\'s List', users_path %> <%= link_to 'Make yourself a list', new_list_path(@user) %> 
+	<div style="float:right;"><%= link_to 'Sign Out', sign_out_path %></div>
+	  <%= link_to 'Find Someone\'s List', users_path %> <%= link_to 'Make yourself a list', new_user_list_path(@user) %> 
       <%= render :partial => 'shared/flashes' -%>
       <%= yield %>
       <%= render :partial => 'shared/javascript' %>
