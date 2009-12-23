@@ -1,5 +1,7 @@
 class ListsController < ApplicationController
   
+  before_filter :authenticate, :only => [:new, :create, :edit, :update]
+  before_filter :authenticate_message
   
   def index
     @lists = List.all
@@ -25,6 +27,11 @@ class ListsController < ApplicationController
   
   def edit
     @list = @user.list.find(params[:id])
+  end
+  
+  
+  def authenticate_message
+    authenticate = flash[:error] = "You must be signed in to do that"
   end
 
 end
