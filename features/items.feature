@@ -51,3 +51,11 @@ Scenario: Add item to list
     Then I should see "s@d.com"
 	And I should see "xmas"
 	And I should see "item"
+	
+Scenario: Update Item
+	Given an item exists with a product name of "ma dix"
+	And I am on the item page for "ma dix"
+	And I press "Edit"
+	And I fill in "Product name" with "ma big dix"
+	And I press "Update"
+	Then I should see "ma big dix"

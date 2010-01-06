@@ -9,12 +9,16 @@
   <body class="<%= body_class %>">
     <div class="content">
 	
-	  <%= link_to 'Find Someone\'s List', users_path %> <%= link_to 'Make yourself a list', new_list_path %> 
+	  <%= link_to 'Find A Wishlist', users_path %> 
+	<% if signed_in? %>
+	<%= link_to 'Create A Wishlist', new_user_list_path(current_user) %> 
+	<% else %>
+	<% end %>
 	  <div style="float:right;">
 	    <% if signed_in? %>
 		  <%= link_to current_user.email, user_path(current_user) %> is signed in, <%= link_to 'Sign Out', sign_out_path %>
 		  <% else %>
-		  <%= link_to 'Sign In', sign_in_path %>
+		  <%= link_to 'Sign In', sign_in_path %>, <%= link_to 'Sign Up', sign_up_path %>
 		<% end %>
 	  </div>
       <%= render :partial => 'shared/flashes' -%>

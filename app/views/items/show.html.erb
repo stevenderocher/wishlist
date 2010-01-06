@@ -1,10 +1,16 @@
 <h2><%= h @item.product_name %> from <%= h @list.user.email %>'s List "<%= h @list.title %>"</h2>
 
 	<h3><%= @item.product_name %></h3>
+	<img src="#{@item.product_image_url}" style="float:left;">
 	<%= @item.seller %><br />
 	<%= @item.description %><br />
 	<%= @item.price %><br />
 	<%= @item.quantity %><br />
 	
 	<%= error_messages_for(:item) %>
+	
+	<% if current_user != @list.user %>
 	<%= button_to 'Reserve', list_item_path(@list, @item, :item => {:reserved => true} ), :method => :put %>
+	<% else %>
+	<%= button_to 'Edit', edit_list_item_path(@list, @item) %>
+	<% end %>

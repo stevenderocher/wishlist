@@ -6,4 +6,7 @@
 	<% end %>
 </ul>
 
+<% if current_user == @user %>
 <%= link_to 'Add a List', new_user_list_path(@user.id) %>
+<% else %>
+<% end %>

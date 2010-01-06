@@ -6,9 +6,6 @@ class Clearance::SessionsController < ApplicationController
 
   def new
     render :template => 'sessions/new'
-    if authenticate?
-      flash[:success] = "You must be signed in to do that."
-    end
   end
 
   def create

@@ -1,7 +1,6 @@
 class ListsController < ApplicationController
   
-  before_filter :authenticate, :only => [:new, :create, :edit, :update]
-  before_filter :authenticate_message
+  before_filter :authenticate_user, :only => [:new, :create, :edit, :update]
   
   def index
     @lists = List.all
@@ -9,7 +8,6 @@ class ListsController < ApplicationController
   
   def new
     @user = User.find(params[:user_id])
-    # @list = List.new(:user_id => @user.id)
     @list = @user.lists.build
   end
   
@@ -29,9 +27,9 @@ class ListsController < ApplicationController
     @list = @user.list.find(params[:id])
   end
   
-  
-  def authenticate_message
-    authenticate = flash[:error] = "You must be signed in to do that"
+  def authenticate_user
+    deny_access('You must be signed in to do that') unless signed_in?
   end
+  
 
 end

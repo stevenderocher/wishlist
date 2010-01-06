@@ -2,14 +2,28 @@
 #   gem install sqlite3-ruby (not necessary on OS X Leopard)
 
 development: &default
-  adapter: mysql
-  database: db/development.mysql
-  pool: 5
-  timeout: 5000
+    adapter: mysql
+    database: temp_development
+    username: root
+    password:
+    socket: /tmp/mysql.sock
+  
+test:
+    adapter: mysql
+    encoding: utf8
+    database: temp_test
+    username: root
+    password:
+    socket: /tmp/mysql.sock
 
-test: &test
-  <<: *default
-  database: db/test.mysql
+production:
+    adapter: mysql
+    encoding: utf8
+    database: temp_production
+    username: root
+    password:
+    socket: /tmp/mysql.sock
+
 
 cucumber:
   <<: *test

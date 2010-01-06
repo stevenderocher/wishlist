@@ -7,8 +7,14 @@
 	    	<%= item.description %><br />
 	    	<%= item.price %><br />
 	    	<%= item.quantity %></li>
+			<% if current_user != @list.user %>
 			<%= button_to 'Reserve', list_item_path(@list, item, :item => {:reserved => true} ), :method => :put %>
+			<% else %>
+			<% end %>
 	<% end %>
 </ul>	
 
+<% if current_user == @list.user %>
 <%= link_to 'Add an Item', new_list_item_path(@list.id) %>
+<% else %>
+<% end %>

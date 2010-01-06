@@ -19,6 +19,9 @@ module NavigationHelpers
     when /the list page for the "([^\"]*)" list/i
       list_path(List.find_by_title($1))
       
+    when /the item page for "([^\"]*)"/i
+      item_path(Item.find_by_product_name($1))
+      
     when /the users page/i
       users_path
       
